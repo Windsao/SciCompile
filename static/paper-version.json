@@ -1,8 +1,8 @@
 {
   "paper_title": "SciCompile: Compiling Scientific Papers into Verifiable Experiences for Agent Learning",
-  "paper_commit": "bff8f63d828d405fc8f2ba953d869ed684a7b453",
+  "paper_commit": "fad699366f7be93af0ea1339a63164fc281495db",
   "updated": "2026-11-17",
-  "pdf_sha256": "7d44a8dfffd25cd74564fa24c84e69453f42bfd3f1a90e6991cf060f18ec5582",
+  "pdf_sha256": "e96068b2d89a6178daa4bfdad3cb48383ae10e65ee92b49b48c3f1c07607defb",
   "results_source": "Main-text Tables 3, 4, 5, and 6; author experimental results",
   "result_table_blobs": {
     "compiler_fidelity.tex": "21e52bad23d29ba1a0851e62763e6ea4dad936b6",
