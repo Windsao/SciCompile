@@ -47,7 +47,7 @@
       </div>
       <aside class="hero-finding" aria-label="Main compiler result">
         <p class="label">Knowledge preservation</p>
-        <p class="number">+2.30<span>to 12.63</span></p>
+        <p class="number">+2.34<span>to 12.63</span></p>
         <p>F1 points with SciCompile-ACG over direct compilation.</p>
         <p class="note">Four models. Two scientific sources.</p>
         <a href="#compiler-results">See the comparison ↓</a>
@@ -66,7 +66,7 @@
 
   <section class="section section-grid" id="abstract" aria-labelledby="abstract-heading">
     <div class="section-heading"><span class="section-index" aria-hidden="true">01</span><h2 id="abstract-heading">Abstract</h2></div>
-    <div class="section-content abstract-text"><p>Scientific papers describe reusable methods, but learning from them requires turning dispersed scientific knowledge into actions whose correctness can be checked. We introduce SciCompile, a framework that compiles papers and available data into scientific experiences connecting a task, its assumptions, tools, evidence, and executable verification. Agents practice these experiences and retain useful instructions and programs while model weights remain fixed. Scientific compilation must preserve the conditions that make a procedure valid. Our source-linked benchmark on X-ray diffraction and adsorption measures both the support for generated claims and the coverage of required knowledge, including what a fixed model can recover in a reconstructed report. Across five compilers, claim Precision is 97.63–100.00%, while knowledge Recall is 81.91–91.05%, identifying omission as a central challenge.</p><p>To address it, SciCompile-ACG binds scientific dependencies to their coverage in a draft, selects context around possible omissions, and appends source-supported information. In the reported four-model comparison, this workflow improves F1 by 2.30–12.63 points without lowering Precision. Separate downstream studies evaluate the original compiled-practice pipeline: GPT-6.1-Sol passes 20/23 terminal-workflow checks versus 18/23 after raw-paper learning, and GPT-6-Luna answers 52/64 scientific plot questions versus 50/64. These findings establish scientific compilation as a measurable interface between literature, verifiable practice, and reusable agent skills. Project website: <a href="https://windsao.github.io/SciCompile/">https://windsao.github.io/SciCompile/</a>.</p></div>
+    <div class="section-content abstract-text"><p>Scientific papers describe reusable methods, but learning from them requires turning dispersed scientific knowledge into actions whose correctness can be checked. We introduce SciCompile, a framework that compiles papers and available data into scientific experiences connecting a task, its assumptions, tools, evidence, and executable verification. Agents practice these experiences and retain useful instructions and programs while model weights remain fixed. Scientific compilation must preserve the conditions that make a procedure valid. Our source-linked benchmark on X-ray diffraction and adsorption measures both the support for generated claims and the coverage of required knowledge, including what a fixed model can recover in a reconstructed report. Across five compilers, claim Precision is 97.63–100.00%, while knowledge Recall is 81.91–91.05%, identifying omission as a central challenge.</p><p>To address it, SciCompile-ACG binds scientific dependencies to their coverage in a draft, selects context around possible omissions, and appends source-supported information. In the reported four-model comparison, this workflow has aggregate F1 scores 2.34–12.63 points above the reported direct references without lower Precision. Separate downstream studies evaluate the original compiled-practice pipeline: GPT-6.1-Sol passes 20/23 terminal-workflow checks versus 18/23 after raw-paper learning, and GPT-6-Luna answers 52/64 scientific plot questions versus 50/64. These findings establish scientific compilation as a measurable interface between literature, verifiable practice, and reusable agent skills. Project website: <a href="https://windsao.github.io/SciCompile/">https://windsao.github.io/SciCompile/</a>.</p></div>
   </section>
 
   <section class="section section-grid" id="method" aria-labelledby="method-heading">
@@ -123,13 +123,13 @@
           <div class="chart-axis" aria-hidden="true"><span></span><div class="axis-ticks"><span>0</span><span>25</span><span>50</span><span>75</span><span>100%</span></div><span class="axis-label">Score / gain</span></div>
           <div id="compiler-chart" role="group" aria-labelledby="chart-heading"><div class="comparison-row" data-model-index="0">
           <div class="model-label">GPT-6-Astra</div>
-          <svg class="comparison-plot" viewBox="0 0 400 40" preserveAspectRatio="none" role="img" aria-label="GPT-6-Astra: F1 95.07% direct, 97.37% with ACG">
+          <svg class="comparison-plot" viewBox="0 0 400 40" preserveAspectRatio="none" role="img" aria-label="GPT-6-Astra: F1 95.07% direct, 97.41% with ACG">
             <line x1="6" x2="394" y1="20" y2="20" stroke="#dfe4e8" stroke-width="1"/>
-            <line class="gain-line" x1="374.872" x2="383.796" y1="20" y2="20" stroke="#1f5f8b" stroke-width="2"/>
+            <line class="gain-line" x1="374.872" x2="383.951" y1="20" y2="20" stroke="#1f5f8b" stroke-width="2"/>
             <circle class="direct-point" cx="374.872" cy="20" r="4" fill="#97a1ab"/>
-            <circle class="acg-point" cx="383.796" cy="20" r="4" fill="#1f5f8b"/>
+            <circle class="acg-point" cx="383.951" cy="20" r="4" fill="#1f5f8b"/>
           </svg>
-          <div class="chart-value"><span class="before">95.07</span> → <span class="after">97.37%</span><span class="gain">+2.30 points</span></div>
+          <div class="chart-value"><span class="before">95.07</span> → <span class="after">97.41%</span><span class="gain">+2.34 points</span></div>
         </div>
 <div class="comparison-row" data-model-index="1">
           <div class="model-label">GPT-5.6-Luna</div>
@@ -161,43 +161,43 @@
           </svg>
           <div class="chart-value"><span class="before">39.23</span> → <span class="after">51.86%</span><span class="gain">+12.63 points</span></div>
         </div></div>
-          <p class="note chart-note">ACG improves F1 by 2.30–12.63 percentage points across four models, with higher Recall and no loss in Precision. All plots use a 0–100% scale.</p>
+          <p class="note chart-note">ACG improves F1 by 2.34–12.63 percentage points across four models, with higher Recall and no loss in Precision. All plots use a 0–100% scale.</p>
           <p id="metric-announcement" class="sr-only" aria-live="polite"></p>
         </div>
         <p>The largest gains come from recovering missing knowledge. Explicitly pointing to a condition or incomplete relationship may help a model retain information that it omitted while organizing the whole paper.</p>
         <p class="mobile-scroll-note">Swipe the tables horizontally to see every column.</p>
         <div class="table-wrap" tabindex="0" role="region" aria-label="Memory compilation results, scrollable">
           <table id="memory-results"><caption>Scientific knowledge preserved with memory-based compilation</caption><thead><tr><th scope="col">Compiler</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th></tr></thead><tbody><tr class="model-start"><th scope="row" class="">GPT-6-Astra</th><td>100.00%</td><td>90.61%</td><td>95.07%</td></tr>
-<tr class=""><th scope="row" class="method-indent">+ A-MEM</th><td>100.00%</td><td>94.12%</td><td>96.92%</td></tr>
-<tr class=""><th scope="row" class="method-indent">+ MAGMA</th><td>100.00%</td><td>93.25%</td><td>96.47%</td></tr>
-<tr class="ours"><th scope="row" class="method-indent">+ SciCompile-ACG</th><td>100.00%</td><td><strong>94.96%</strong></td><td><strong>97.37%</strong></td></tr>
+<tr class=""><th scope="row" class="method-indent">+ A-MEM</th><td>100.00%</td><td>94.12%</td><td>96.97%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ MAGMA</th><td>100.00%</td><td>93.25%</td><td>96.51%</td></tr>
+<tr class="ours"><th scope="row" class="method-indent">+ SciCompile-ACG</th><td>100.00%</td><td><strong>94.96%</strong></td><td><strong>97.41%</strong></td></tr>
 <tr class="model-start"><th scope="row" class="">GPT-5.6-Luna</th><td>98.11%</td><td>78.09%</td><td>86.96%</td></tr>
-<tr class=""><th scope="row" class="method-indent">+ A-MEM</th><td>98.48%</td><td>85.35%</td><td>91.39%</td></tr>
-<tr class=""><th scope="row" class="method-indent">+ MAGMA</th><td>98.56%</td><td>84.56%</td><td>90.98%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ A-MEM</th><td>98.48%</td><td>85.35%</td><td>91.45%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ MAGMA</th><td>98.56%</td><td>84.56%</td><td>91.02%</td></tr>
 <tr class="ours"><th scope="row" class="method-indent">+ SciCompile-ACG</th><td><strong>99.67%</strong></td><td><strong>86.35%</strong></td><td><strong>92.53%</strong></td></tr>
 <tr class="model-start"><th scope="row" class="">Qwen3-VL-32B</th><td>78.70%</td><td>48.30%</td><td>59.86%</td></tr>
-<tr class=""><th scope="row" class="method-indent">+ A-MEM<sup>†</sup></th><td>87.42%</td><td>58.77%</td><td>69.52%</td></tr>
-<tr class=""><th scope="row" class="method-indent">+ MAGMA<sup>†</sup></th><td>86.43%</td><td>58.68%</td><td>68.58%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ A-MEM<sup>†</sup></th><td>87.42%</td><td>58.77%</td><td>70.29%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ MAGMA<sup>†</sup></th><td>86.43%</td><td>58.68%</td><td>69.90%</td></tr>
 <tr class="ours"><th scope="row" class="method-indent">+ SciCompile-ACG</th><td><strong>82.61%</strong></td><td><strong>63.16%</strong></td><td><strong>71.59%</strong></td></tr>
 <tr class="model-start"><th scope="row" class="">Mistral Small 3.2-24B</th><td>84.69%</td><td>25.53%</td><td>39.23%</td></tr>
-<tr class=""><th scope="row" class="method-indent">+ A-MEM</th><td>93.46%</td><td>30.04%</td><td>44.55%</td></tr>
-<tr class=""><th scope="row" class="method-indent">+ MAGMA</th><td>88.98%</td><td>34.21%</td><td>48.42%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ A-MEM</th><td>93.46%</td><td>30.04%</td><td>45.47%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ MAGMA</th><td>88.98%</td><td>34.21%</td><td>49.42%</td></tr>
 <tr class="ours"><th scope="row" class="method-indent">+ SciCompile-ACG</th><td><strong>86.96%</strong></td><td><strong>36.95%</strong></td><td><strong>51.86%</strong></td></tr></tbody></table>
         </div>
         <p class="note">Values are our experimental results from Table 4 of the paper. Each model block starts with direct compilation. Bold marks ACG gains over that row. A-MEM and MAGMA are compiler adaptations. † Qwen’s memory comparisons include bounded retries for an oversized direct draft.</p>
         <details class="protocol"><summary>Memory compilation protocol</summary><div class="protocol-content">
           <p>All methods receive the same source packets, figures, task scope, and output schema, with a 6,500-token final-artifact limit. Direct compilation generates a tuple in one stage; ACG uses three stages.</p>
           <p>A-MEM links source notes and updates retrieval context. MAGMA retrieves through semantic, entity, scientific-dependency, and source-supported temporal relations. Each adaptation uses five logical generation stages, a fixed MiniLM encoder, six source-based review queries, and a 3,000-token retrieved-memory limit. Both retrieve evidence to supplement a direct draft with bounded additions.</p>
-          <p>All three memory workflows achieve higher F1 than direct compilation within each model block. SciCompile-ACG has the highest F1 across all four models. For the open models, ACG achieves higher Recall while A-MEM and MAGMA have higher Precision; ACG’s F1 exceeds the strongest memory alternative by 2.07 points for Qwen and 3.44 for Mistral. The comparison evaluates the complete workflows with their respective drafts and call budgets.</p>
-          <p>A separate GPT-6.1-Sol evaluator scores frozen outputs. Metrics are computed per output, averaged within each paper, and then averaged equally across papers. Reported mean F1 is therefore not recomputed from the displayed mean Precision and Recall. See the paper’s compiler evaluation and memory compilation protocols for the annotation and retry rules.</p>
+          <p>All three memory workflows achieve higher F1 than direct compilation within each model block. SciCompile-ACG has the highest F1 across all four models. For the open models, ACG achieves higher Recall while A-MEM and MAGMA have higher Precision; ACG’s F1 exceeds the strongest memory alternative by 1.30 points for Qwen and 2.44 for Mistral. The comparison summarizes complete workflows across output batches. The direct rows are memory-comparison references, separate from the five-model fidelity experiment, and are not a common paired control for every adapter.</p>
+          <p>A separate GPT-6.1-Sol evaluator scores frozen outputs. Both compiler tables use the same aggregate F1: 2 × P × R / (P + R), calculated from each row’s displayed Precision and Recall and rounded to two decimals. P and R retain the reported condition aggregates. Where output-level records are available, P and R are averaged within each paper and then equally across papers. Aggregate F1 differs from the mean of output-level F1 scores. See the paper’s compiler evaluation and memory compilation protocols for the annotation and retry rules.</p>
         </div></details>
         <details class="more-results"><summary>Five-compiler benchmark: experience and reconstructed report</summary>
-          <p class="note">A fixed GPT-6.1-Sol writer reconstructs a report from the anonymized experience alone. It cannot retrieve the original source. The same source-linked evaluation checks both views.</p>
-          <div class="table-wrap" tabindex="0" role="region" aria-label="Compiler and reconstruction results, scrollable"><table id="fidelity-results"><caption>Knowledge preserved in the compiled experience and its reconstruction</caption><thead><tr><th rowspan="2" scope="col">Compiler</th><th colspan="3" scope="colgroup">Compiled experience (%)</th><th colspan="3" scope="colgroup">Reconstructed report (%)</th></tr><tr><th scope="col">P</th><th scope="col">R</th><th scope="col">F1</th><th scope="col">P</th><th scope="col">R</th><th scope="col">F1</th></tr></thead><tbody><tr class=""><th scope="row">GPT-6-Astra</th><td>100.00</td><td>91.05</td><td>95.30</td><td>100.00</td><td>91.05</td><td>95.30</td></tr>
+          <p class="note">A fixed GPT-6.1-Sol writer reconstructs a report from the anonymized experience alone. It cannot retrieve the original source. This independent fidelity experiment uses two fresh compilations per source and model; its direct tuples are not the direct references in the memory comparison. The same source-linked evaluation checks both views.</p>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Compiler and reconstruction results, scrollable"><table id="fidelity-results"><caption>Knowledge preserved in the compiled experience and its reconstruction</caption><thead><tr><th rowspan="2" scope="col">Compiler</th><th colspan="3" scope="colgroup">Compiled experience (%)</th><th colspan="3" scope="colgroup">Reconstructed report (%)</th></tr><tr><th scope="col">P</th><th scope="col">R</th><th scope="col">F1</th><th scope="col">P</th><th scope="col">R</th><th scope="col">F1</th></tr></thead><tbody><tr class=""><th scope="row">GPT-6-Astra</th><td>100.00</td><td>91.05</td><td>95.32</td><td>100.00</td><td>91.05</td><td>95.32</td></tr>
 <tr class=""><th scope="row">GPT-6.1-Sol</th><td>100.00</td><td>89.74</td><td>94.59</td><td>100.00</td><td>89.74</td><td>94.59</td></tr>
-<tr class=""><th scope="row">GPT-6-Luna</th><td>98.51</td><td>90.92</td><td>94.50</td><td>98.67</td><td>90.92</td><td>94.59</td></tr>
-<tr class=""><th scope="row">GPT-5.6-Sol</th><td>99.10</td><td>81.91</td><td>89.49</td><td>99.13</td><td>81.91</td><td>89.50</td></tr>
-<tr class=""><th scope="row">GPT-5.6-Luna</th><td>97.63</td><td>81.97</td><td>89.07</td><td>99.67</td><td>78.09</td><td>87.50</td></tr></tbody></table></div>
+<tr class=""><th scope="row">GPT-6-Luna</th><td>98.51</td><td>90.92</td><td>94.56</td><td>98.67</td><td>90.92</td><td>94.64</td></tr>
+<tr class=""><th scope="row">GPT-5.6-Sol</th><td>99.10</td><td>81.91</td><td>89.69</td><td>99.13</td><td>81.91</td><td>89.70</td></tr>
+<tr class=""><th scope="row">GPT-5.6-Luna</th><td>97.63</td><td>81.97</td><td>89.12</td><td>99.67</td><td>78.09</td><td>87.57</td></tr></tbody></table></div>
           <p class="note">Table 3. Five compilers, two fresh attempts per source. These are separate runs from the memory comparison above. P = Precision; R = Recall.</p>
           <p>Most claims are supported, but required information is still lost. Reconstruction leaves mean Recall unchanged for four compilers and lowers it for GPT-5.6-Luna. A common writer therefore does not improve mean knowledge coverage in this benchmark.</p>
         </details>
@@ -257,6 +257,6 @@
   </section>
 </main>
 <footer class="site-footer"><div class="wrap footer-inner"><p>SciCompile · Shang Wu and Han Liu · Northwestern University<br>Updated from the 17 November 2026 paper. <a href="static/main.pdf">Paper PDF</a> · <a href="https://github.com/Windsao/SciCompile">Website source</a></p><p>Design refined with <a href="https://github.com/heydamir/unslop">unslop</a><br>by Damir Sokolovsky.</p></div></footer>
-<script type="application/json" id="compiler-data">[{"model": "GPT-6-Astra", "rows": [{"method": "Direct", "precision": 100.0, "recall": 90.61, "f1": 95.07}, {"method": "+ A-MEM", "precision": 100.0, "recall": 94.12, "f1": 96.92}, {"method": "+ MAGMA", "precision": 100.0, "recall": 93.25, "f1": 96.47}, {"method": "+ SciCompile-ACG", "precision": 100.0, "recall": 94.96, "f1": 97.37}]}, {"model": "GPT-5.6-Luna", "rows": [{"method": "Direct", "precision": 98.11, "recall": 78.09, "f1": 86.96}, {"method": "+ A-MEM", "precision": 98.48, "recall": 85.35, "f1": 91.39}, {"method": "+ MAGMA", "precision": 98.56, "recall": 84.56, "f1": 90.98}, {"method": "+ SciCompile-ACG", "precision": 99.67, "recall": 86.35, "f1": 92.53}]}, {"model": "Qwen3-VL-32B", "rows": [{"method": "Direct", "precision": 78.7, "recall": 48.3, "f1": 59.86}, {"method": "+ A-MEM\u2020", "precision": 87.42, "recall": 58.77, "f1": 69.52}, {"method": "+ MAGMA\u2020", "precision": 86.43, "recall": 58.68, "f1": 68.58}, {"method": "+ SciCompile-ACG", "precision": 82.61, "recall": 63.16, "f1": 71.59}]}, {"model": "Mistral Small 3.2-24B", "rows": [{"method": "Direct", "precision": 84.69, "recall": 25.53, "f1": 39.23}, {"method": "+ A-MEM", "precision": 93.46, "recall": 30.04, "f1": 44.55}, {"method": "+ MAGMA", "precision": 88.98, "recall": 34.21, "f1": 48.42}, {"method": "+ SciCompile-ACG", "precision": 86.96, "recall": 36.95, "f1": 51.86}]}]</script>
+<script type="application/json" id="compiler-data">[{"model": "GPT-6-Astra", "rows": [{"method": "Direct", "precision": 100.0, "recall": 90.61, "f1": 95.07}, {"method": "+ A-MEM", "precision": 100.0, "recall": 94.12, "f1": 96.97}, {"method": "+ MAGMA", "precision": 100.0, "recall": 93.25, "f1": 96.51}, {"method": "+ SciCompile-ACG", "precision": 100.0, "recall": 94.96, "f1": 97.41}]}, {"model": "GPT-5.6-Luna", "rows": [{"method": "Direct", "precision": 98.11, "recall": 78.09, "f1": 86.96}, {"method": "+ A-MEM", "precision": 98.48, "recall": 85.35, "f1": 91.45}, {"method": "+ MAGMA", "precision": 98.56, "recall": 84.56, "f1": 91.02}, {"method": "+ SciCompile-ACG", "precision": 99.67, "recall": 86.35, "f1": 92.53}]}, {"model": "Qwen3-VL-32B", "rows": [{"method": "Direct", "precision": 78.7, "recall": 48.3, "f1": 59.86}, {"method": "+ A-MEM\u2020", "precision": 87.42, "recall": 58.77, "f1": 70.29}, {"method": "+ MAGMA\u2020", "precision": 86.43, "recall": 58.68, "f1": 69.9}, {"method": "+ SciCompile-ACG", "precision": 82.61, "recall": 63.16, "f1": 71.59}]}, {"model": "Mistral Small 3.2-24B", "rows": [{"method": "Direct", "precision": 84.69, "recall": 25.53, "f1": 39.23}, {"method": "+ A-MEM", "precision": 93.46, "recall": 30.04, "f1": 45.47}, {"method": "+ MAGMA", "precision": 88.98, "recall": 34.21, "f1": 49.42}, {"method": "+ SciCompile-ACG", "precision": 86.96, "recall": 36.95, "f1": 51.86}]}]</script>
 </body>
 </html>
