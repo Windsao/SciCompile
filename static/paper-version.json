@@ -1,8 +1,15 @@
 {
   "paper_title": "SciCompile: Compiling Scientific Papers into Verifiable Experiences for Agent Learning",
-  "paper_commit": "0b7078588743b2cee994396b8860f99b33bec93f",
+  "paper_commit": "bff8f63d828d405fc8f2ba953d869ed684a7b453",
   "updated": "2026-11-17",
-  "pdf_sha256": "554e0f6dc714eca028e790b427eae887b39d38e8f6470aea48b586737de5947f",
+  "pdf_sha256": "7d44a8dfffd25cd74564fa24c84e69453f42bfd3f1a90e6991cf060f18ec5582",
+  "results_source": "Main-text Tables 3, 4, 5, and 6; author experimental results",
+  "result_table_blobs": {
+    "compiler_fidelity.tex": "21e52bad23d29ba1a0851e62763e6ea4dad936b6",
+    "compiler_acg_models.tex": "bc6e28b58ba7b153798b6ef68294ae96f467f129",
+    "tbs_reward.tex": "a551a19eaa22d0fa917f139a15c1814d0079761a",
+    "materials.tex": "a3ee7f3104d483cdd0df495e511af31db2ed6e3d"
+  },
   "compiler_results": [
     {
       "model": "GPT-6-Astra",
