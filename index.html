@@ -43,7 +43,7 @@
         <h1><span class="project-title">SciCompile</span>Compiling scientific papers into verifiable experiences for agent learning</h1>
         <p class="authors">Shang Wu &nbsp;·&nbsp; Han Liu</p>
         <p class="affiliation">Northwestern University</p>
-        <div class="actions"><a class="button" href="static/main.pdf">Read the paper <span class="sr-only">(PDF, 38 pages)</span></a><a class="button secondary" href="#results">Explore the results</a></div>
+        <div class="actions"><a class="button" href="static/main.pdf">Read the paper <span class="sr-only">(PDF)</span></a><a class="button secondary" href="#results">Explore the results</a></div>
       </div>
       <aside class="hero-finding" aria-label="Main compiler result">
         <p class="label">Knowledge preservation</p>
@@ -75,7 +75,7 @@
       <p class="section-intro">A paper describes what worked. An experience makes the procedure explicit enough for an agent to practice it, check its outputs, and reuse what it learns.</p>
       <div class="subsection">
         <h3>The scientific experience</h3>
-        <p>The compiler receives paper text, available data, and source provenance. It produces a connected contract:</p>
+        <p>The compiler receives paper text, available data, and source provenance. All material and biological experiences in the reported studies use the complete six-component contract, serialized as structured JSON:</p>
         <div class="tuple-formula" aria-label="Experience E consists of C, Q, T, O, V, and Pi">E = <span class="symbols">(C, Q, T, O, V, Π)</span></div>
         <dl class="tuple-list">
           <div class="tuple-item"><dt>C</dt><dd><strong>Context</strong>Assumptions and conditions under which the procedure applies.</dd></div>
@@ -205,7 +205,7 @@
 
       <div class="subsection">
         <h3>Can agents reuse what they practice?</h3>
-        <p>Separate downstream studies evaluate the original compiled-practice pipeline on terminal workflows and scientific plots. These experiments test learned skills; they do not use the ACG compiler variant.</p>
+        <p>Separate downstream studies evaluate skills learned through the original compiled-practice pipeline on terminal workflows and scientific plots. Within each downstream agent, raw-paper and compiled learning share practice inputs, executable reward contracts, and update budgets. The ACG compiler variant is evaluated separately in the source-fidelity study.</p>
         <div class="outcomes"><div class="outcome"><p class="value">20<small> / 23</small></p><p>Terminal-workflow checks passed<br>GPT-6.1-Sol · raw paper: 18/23</p></div><div class="outcome"><p class="value">52<small> / 64</small></p><p>Scientific plot questions correct<br>GPT-6-Luna · raw paper: 50/64</p></div></div>
         <details class="more-results"><summary>Terminal workflow results</summary><p class="note">Four tasks: cilia segmentation, resistance prediction, sequencing quality control, and genomic-model ranking. A task is solved only if every native verifier check passes.</p>
           <div class="table-wrap" tabindex="0" role="region" aria-label="Terminal workflow results, scrollable"><table class="data-table" id="tbs-results"><caption>Terminal workflow checks and solved tasks</caption><thead><tr><th scope="col">Model</th><th scope="col">Method</th><th scope="col">Cilia</th><th scope="col">Resistance</th><th scope="col">ONT</th><th scope="col">Genomic</th><th scope="col">Checks</th><th scope="col">Solved</th></tr></thead><tbody><tr class=""><th scope="row">GPT-6.1-Sol</th><td>No documents</td><td>8/9</td><td>0/1</td><td>9/9</td><td>1/4</td><td>18/23</td><td>1/4</td></tr>
@@ -214,7 +214,7 @@
 <tr class=""><th scope="row">GPT-6-Luna</th><td>Raw paper</td><td>7/9</td><td>0/1</td><td>7/9</td><td>1/4</td><td>15/23</td><td>0/4</td></tr>
 <tr class=""><th scope="row">GPT-6-Luna</th><td>No documents</td><td>7/9</td><td>0/1</td><td>7/9</td><td>0/4</td><td>14/23</td><td>0/4</td></tr>
 <tr class="ours"><th scope="row">GPT-6-Luna</th><td>SciCompile</td><td>8/9</td><td>0/1</td><td>8/9</td><td>1/4</td><td>17/23</td><td>0/4</td></tr></tbody></table></div>
-          <p class="note">Table 5. The paper reports three-run summaries, including the task-level protocol and verifier details.</p>
+          <p class="note">Table 5. Three-run summaries for GPT-6.1-Sol and GPT-6-Luna. Practice uses microscopy, resistance metadata, long-read processing, and sequence ranking. The supplementary GB1 compilation-and-verification exercise has no terminal benchmark task and contributes no score here.</p>
         </details>
         <details class="more-results"><summary>Scientific plot results</summary><p class="note">MaCBench questions cover XRD and adsorption plots: eight task types, eight questions per type. Each evaluation permits eight tool calls and 240 seconds.</p>
           <div class="table-wrap" tabindex="0" role="region" aria-label="Scientific plot results, scrollable"><table class="data-table" id="plot-results"><caption>Scientific plot questions answered correctly</caption><thead><tr><th scope="col">Model</th><th scope="col">Method</th><th scope="col">XRD</th><th scope="col">Adsorption</th><th scope="col">Total</th></tr></thead><tbody><tr class=""><th scope="row">GPT-6-Luna</th><td>PaperGym</td><td>23/32</td><td>28/32</td><td>51/64</td></tr>
@@ -227,7 +227,7 @@
 <tr class=""><th scope="row">GPT-5.6-Sol</th><td>Paper2Agent</td><td>10/32</td><td>1/32</td><td>11/64</td></tr>
 <tr class=""><th scope="row">GPT-5.6-Sol</th><td>No documents</td><td>9/32</td><td>1/32</td><td>10/64</td></tr>
 <tr class="ours"><th scope="row">GPT-5.6-Sol</th><td>SciCompile</td><td>12/32</td><td>4/32</td><td>16/64</td></tr></tbody></table></div>
-          <p class="note">Table 6. Three-run means. Practice uses simulated numerical inputs; evaluation asks the agent to interpret held-out plot images.</p>
+          <p class="note">Table 6. Three-run means. GPT-6-Luna uses practice contracts generated by GPT-6-Luna; GPT-5.6-Sol uses contracts generated and audited by GPT-6-Astra. Within each agent, raw-paper and compiled learning use the same frozen contract. Practice uses simulated numerical inputs; evaluation asks the agent to interpret held-out plot images.</p>
         </details>
       </div>
     </div>

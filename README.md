@@ -15,7 +15,7 @@ This is a buildless HTML/CSS/JavaScript website. GitHub Pages publishes the repo
 
 The paper's main-text result tables are the single source of truth. All values are the authors' experimental results. Table 3 and Table 4 represent separate experiments; comparisons in the memory study use the direct row within each Table 4 model block. Derive improvements and rankings from those rows, and do not import alternate baselines from earlier experiment reports. Keep the page tables, interactive chart, narrative, and `paper-version.json` consistent with them.
 
-The current page uses the 17 November 2026 paper, revision `fad699366f7be93af0ea1339a63164fc281495db`. The compiler table matches paper Table 4; the expandable tables match Tables 3, 5, and 6. The PDF includes the shortened Memory Compilation Protocol.
+The current page uses the 17 November 2026 paper, revision `95cce4ec8034b51f1968a9ed5f4704d99cd4b0d1`. The compiler table matches paper Table 4; the expandable tables match Tables 3, 5, and 6. The PDF and page describe complete six-component experiences, matched raw-paper and compiled practice within each downstream agent, explicit material compiler-to-agent contract assignments, and the separation between four terminal workflows and the supplementary GB1 exercise.
 
 To preview locally, open `index.html` or run `python3 -m http.server 8000` in this directory and visit http://localhost:8000. No package installation or build is required.
 
