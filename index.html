@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>SciCompile: Compiling Scientific Papers into Verifiable Experiences for Agent Learning</title>
+  <meta name="description" content="SciCompile turns scientific papers into verifiable experiences for agent learning. Explore the framework, source-linked compiler benchmark, and active context graph results.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SciCompile: Compiling Scientific Papers into Verifiable Experiences for Agent Learning">
+  <meta property="og:description" content="From scientific papers to verifiable practice. Compiler fidelity, active context graphs, and reusable agent skills.">
+  <meta property="og:url" content="https://windsao.github.io/SciCompile/">
+  <meta property="og:image" content="https://windsao.github.io/SciCompile/static/fig1.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="citation_title" content="SciCompile: Compiling Scientific Papers into Verifiable Experiences for Agent Learning">
+  <meta name="citation_author" content="Shang Wu">
+  <meta name="citation_author" content="Han Liu">
+  <meta name="citation_publication_date" content="2026/11/17">
+  <meta name="citation_pdf_url" content="https://windsao.github.io/SciCompile/static/main.pdf">
+  <link rel="canonical" href="https://windsao.github.io/SciCompile/">
+  <link rel="icon" href="static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+  <noscript><style>.menu-toggle{display:none}.nav-links{display:flex;position:static;flex-wrap:wrap;padding:8px 0}.nav-inner{flex-wrap:wrap}.metric-switch,.copy-button{display:none}.example-panel[hidden]{display:grid;margin-top:32px}.example-tabs{display:none}</style></noscript>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#main">SciCompile</a>
+    <button class="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
+      <a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#results">Results</a><a href="#examples">Examples</a><a href="#bibtex">Cite</a>
+      <a href="https://github.com/Windsao/SciCompile">GitHub ↗</a>
+    </div>
+  </div>
+</nav>
+<main class="wrap" id="main">
+  <header class="paper-header">
+    <div class="paper-meta"><span>Research draft</span><span>17 November 2026</span></div>
+    <div class="hero-layout">
+      <div>
+        <h1><span class="project-title">SciCompile</span>Compiling scientific papers into verifiable experiences for agent learning</h1>
+        <p class="authors">Shang Wu &nbsp;·&nbsp; Han Liu</p>
+        <p class="affiliation">Northwestern University</p>
+        <div class="actions"><a class="button" href="static/main.pdf">Read the paper <span class="sr-only">(PDF, 38 pages)</span></a><a class="button secondary" href="#results">Explore the results</a></div>
+      </div>
+      <aside class="hero-finding" aria-label="Main compiler result">
+        <p class="label">Knowledge preservation</p>
+        <p class="number">+2.30<span>to 12.63</span></p>
+        <p>F1 points with SciCompile-ACG over direct compilation.</p>
+        <p class="note">Four models. Two scientific sources.</p>
+        <a href="#compiler-results">See the comparison ↓</a>
+      </aside>
+    </div>
+  </header>
+  <figure class="overview">
+    <img class="figure-image" src="static/fig1.png" width="1440" height="600" alt="SciCompile overview: compile a scientific source into a structured experience, practice with executable verification, and retain skills for new tasks." fetchpriority="high">
+    <ol class="mobile-workflow" aria-label="SciCompile workflow">
+      <li><span class="step" aria-hidden="true">01</span><div><strong>Compile the science</strong><p>Connect a paper’s procedure, conditions, evidence, and checks.</p></div></li>
+      <li><span class="step" aria-hidden="true">02</span><div><strong>Practice and verify</strong><p>Execute the task and learn from component-level feedback.</p></div></li>
+      <li><span class="step" aria-hidden="true">03</span><div><strong>Reuse the skill</strong><p>Keep useful instructions and programs. Model weights stay fixed.</p></div></li>
+    </ol>
+    <figcaption class="figure-caption"><p>From a scientific source to an executable experience and reusable skills. The experience keeps the procedure connected to its assumptions, evidence, and verification.</p><a href="static/fig1.png">View full figure ↗</a></figcaption>
+  </figure>
+
+  <section class="section section-grid" id="abstract" aria-labelledby="abstract-heading">
+    <div class="section-heading"><span class="section-index" aria-hidden="true">01</span><h2 id="abstract-heading">Abstract</h2></div>
+    <div class="section-content abstract-text"><p>Scientific papers describe reusable methods, but learning from them requires turning dispersed scientific knowledge into actions whose correctness can be checked. We introduce SciCompile, a framework that compiles papers and available data into scientific experiences connecting a task, its assumptions, tools, evidence, and executable verification. Agents practice these experiences and retain useful instructions and programs while model weights remain fixed. Scientific compilation must preserve the conditions that make a procedure valid. Our source-linked benchmark on X-ray diffraction and adsorption measures both the support for generated claims and the coverage of required knowledge, including what a fixed model can recover in a reconstructed report. Across five compilers, claim Precision is 97.63–100.00%, while knowledge Recall is 81.91–91.05%, identifying omission as a central challenge.</p><p>To address it, SciCompile-ACG binds scientific dependencies to their coverage in a draft, selects context around possible omissions, and appends source-supported information. In the reported four-model comparison, this workflow improves F1 by 2.30–12.63 points without lowering Precision. Separate downstream studies evaluate the original compiled-practice pipeline: GPT-6.1-Sol passes 20/23 terminal-workflow checks versus 18/23 after raw-paper learning, and GPT-6-Luna answers 52/64 scientific plot questions versus 50/64. These findings establish scientific compilation as a measurable interface between literature, verifiable practice, and reusable agent skills.</p></div>
+  </section>
+
+  <section class="section section-grid" id="method" aria-labelledby="method-heading">
+    <div class="section-heading"><span class="section-index" aria-hidden="true">02</span><h2 id="method-heading">Method</h2></div>
+    <div class="section-content">
+      <p class="section-intro">A paper describes what worked. An experience makes the procedure explicit enough for an agent to practice it, check its outputs, and reuse what it learns.</p>
+      <div class="subsection">
+        <h3>The scientific experience</h3>
+        <p>The compiler receives paper text, available data, and source provenance. It produces a connected contract:</p>
+        <div class="tuple-formula" aria-label="Experience E consists of C, Q, T, O, V, and Pi">E = <span class="symbols">(C, Q, T, O, V, Π)</span></div>
+        <dl class="tuple-list">
+          <div class="tuple-item"><dt>C</dt><dd><strong>Context</strong>Assumptions and conditions under which the procedure applies.</dd></div>
+          <div class="tuple-item"><dt>Q</dt><dd><strong>Question</strong>The scientific goal and the required output.</dd></div>
+          <div class="tuple-item"><dt>T</dt><dd><strong>Tools</strong>Operations, dependencies, and input/output formats.</dd></div>
+          <div class="tuple-item"><dt>O</dt><dd><strong>Evidence</strong>Available observations and explicitly missing inputs.</dd></div>
+          <div class="tuple-item"><dt>V</dt><dd><strong>Verifier</strong>Executable checks, tolerances, and scoring rules.</dd></div>
+          <div class="tuple-item"><dt>Π</dt><dd><strong>Permissions</strong>Restrictions on source use and derived material.</dd></div>
+        </dl>
+      </div>
+      <div class="subsection">
+        <h3>Keep methods connected to their conditions</h3>
+        <p>SciCompile-ACG uses an active context graph to find scientific dependencies that a draft may have missed. A formula, for example, must stay linked to its units and range of validity.</p>
+        <ol class="acg-steps">
+          <li><div><strong>Map the source dependencies</strong><p>Link claims, methods, evidence, units, conditions, and limitations to their source locations. Relations include “requires,” “constrains,” and “qualifies.”</p></div></li>
+          <li><div><strong>Connect the graph to a draft</strong><p>Generate an experience and bind source nodes to its records. A controller selects up to 24 possible gaps, prioritizing critical conditions and relationships.</p></div></li>
+          <li><div><strong>Review and supplement</strong><p>Review the selected context with the complete draft and source. Append attributed additions within a 6,500-token final budget, preserving existing records.</p></div></li>
+        </ol>
+        <p class="note">The same three-stage policy is used across papers. The compiler has no access to benchmark requirements or scores and needs no per-paper meta-agent optimization.</p>
+      </div>
+      <details class="protocol">
+        <summary>How verification and skill learning work</summary>
+        <div class="protocol-content">
+          <p>The verifier runs Python checks on the agent’s intermediate or final artifacts. It returns distinct outcomes:</p>
+          <ul class="verifier-outcomes"><li><code>null</code><span>Required evidence is unavailable.</span></li><li><code>0</code><span>The submission or a critical validity check fails.</span></li><li><code>0 to 1</code><span>Otherwise, a weighted sum of component scores measures correctness.</span></li></ul>
+          <p>A separate model session implements a second scorer from the source and written contract. The controller compares both scorers on valid, corrupted, and missing-evidence cases before freezing the verifier.</p>
+          <ol class="practice-steps"><li><strong>Practice.</strong> Run tools, submit artifacts, and receive verification feedback.</li><li><strong>Revise.</strong> Propose reusable instructions and programs from the execution record.</li><li><strong>Select.</strong> Keep a revision only if mean reward improves on private selection cases and no regression case worsens beyond numerical tolerance.</li><li><strong>Reuse.</strong> Freeze the accepted skills and provide them to a fresh agent on new tasks.</li></ol>
+          <p>Learning changes the stored skills, programs, and retrieval catalog. Model weights, tools, and the base harness remain fixed.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="section section-grid" id="results" aria-labelledby="results-heading">
+    <div class="section-heading"><span class="section-index" aria-hidden="true">03</span><h2 id="results-heading">Results</h2></div>
+    <div class="section-content">
+      <p class="section-intro">We measure both the scientific knowledge preserved during compilation and the usefulness of compiled practice on new tasks.</p>
+      <div class="subsection" id="compiler-results">
+        <h3>How much scientific knowledge survives?</h3>
+        <p>The compiler benchmark uses an X-ray diffraction tutorial and an adsorption-method guide. A separate evaluator checks each output against the original sources and a fixed list of required knowledge.</p>
+        <dl class="metric-definitions"><div><dt>Precision</dt><dd>How many checkable claims in the output are supported by the source?</dd></div><div><dt>Recall</dt><dd>How much of the required scientific knowledge does the output retain?</dd></div><div><dt>F1</dt><dd>The harmonic mean of Precision and Recall, rewarding both support and coverage.</dd></div></dl>
+        <div class="chart-panel">
+          <div class="chart-top"><h4 id="chart-heading">Direct compilation → SciCompile-ACG</h4><div class="metric-switch" role="group" aria-label="Comparison metric"><button type="button" data-metric="f1" aria-pressed="true">F1</button><button type="button" data-metric="recall" aria-pressed="false">Recall</button><button type="button" data-metric="precision" aria-pressed="false">Precision</button></div></div>
+          <div class="chart-legend" aria-hidden="true"><span><i class="dot"></i>Direct</span><span><i class="dot acg"></i>+ SciCompile-ACG</span></div>
+          <div class="chart-axis" aria-hidden="true"><span></span><div class="axis-ticks"><span>0</span><span>25</span><span>50</span><span>75</span><span>100%</span></div><span class="axis-label">Score / gain</span></div>
+          <div id="compiler-chart" role="group" aria-labelledby="chart-heading"><div class="comparison-row" data-model-index="0">
+          <div class="model-label">GPT-6-Astra</div>
+          <svg class="comparison-plot" viewBox="0 0 400 40" preserveAspectRatio="none" role="img" aria-label="GPT-6-Astra: F1 95.07% direct, 97.37% with ACG">
+            <line x1="6" x2="394" y1="20" y2="20" stroke="#dfe4e8" stroke-width="1"/>
+            <line class="gain-line" x1="374.872" x2="383.796" y1="20" y2="20" stroke="#1f5f8b" stroke-width="2"/>
+            <circle class="direct-point" cx="374.872" cy="20" r="4" fill="#97a1ab"/>
+            <circle class="acg-point" cx="383.796" cy="20" r="4" fill="#1f5f8b"/>
+          </svg>
+          <div class="chart-value"><span class="before">95.07</span> → <span class="after">97.37%</span><span class="gain">+2.30 points</span></div>
+        </div>
+<div class="comparison-row" data-model-index="1">
+          <div class="model-label">GPT-5.6-Luna</div>
+          <svg class="comparison-plot" viewBox="0 0 400 40" preserveAspectRatio="none" role="img" aria-label="GPT-5.6-Luna: F1 86.96% direct, 92.53% with ACG">
+            <line x1="6" x2="394" y1="20" y2="20" stroke="#dfe4e8" stroke-width="1"/>
+            <line class="gain-line" x1="343.405" x2="365.016" y1="20" y2="20" stroke="#1f5f8b" stroke-width="2"/>
+            <circle class="direct-point" cx="343.405" cy="20" r="4" fill="#97a1ab"/>
+            <circle class="acg-point" cx="365.016" cy="20" r="4" fill="#1f5f8b"/>
+          </svg>
+          <div class="chart-value"><span class="before">86.96</span> → <span class="after">92.53%</span><span class="gain">+5.57 points</span></div>
+        </div>
+<div class="comparison-row" data-model-index="2">
+          <div class="model-label">Qwen3-VL-32B</div>
+          <svg class="comparison-plot" viewBox="0 0 400 40" preserveAspectRatio="none" role="img" aria-label="Qwen3-VL-32B: F1 59.86% direct, 71.59% with ACG">
+            <line x1="6" x2="394" y1="20" y2="20" stroke="#dfe4e8" stroke-width="1"/>
+            <line class="gain-line" x1="238.257" x2="283.769" y1="20" y2="20" stroke="#1f5f8b" stroke-width="2"/>
+            <circle class="direct-point" cx="238.257" cy="20" r="4" fill="#97a1ab"/>
+            <circle class="acg-point" cx="283.769" cy="20" r="4" fill="#1f5f8b"/>
+          </svg>
+          <div class="chart-value"><span class="before">59.86</span> → <span class="after">71.59%</span><span class="gain">+11.73 points</span></div>
+        </div>
+<div class="comparison-row" data-model-index="3">
+          <div class="model-label">Mistral Small 3.2-24B</div>
+          <svg class="comparison-plot" viewBox="0 0 400 40" preserveAspectRatio="none" role="img" aria-label="Mistral Small 3.2-24B: F1 39.23% direct, 51.86% with ACG">
+            <line x1="6" x2="394" y1="20" y2="20" stroke="#dfe4e8" stroke-width="1"/>
+            <line class="gain-line" x1="158.212" x2="207.217" y1="20" y2="20" stroke="#1f5f8b" stroke-width="2"/>
+            <circle class="direct-point" cx="158.212" cy="20" r="4" fill="#97a1ab"/>
+            <circle class="acg-point" cx="207.217" cy="20" r="4" fill="#1f5f8b"/>
+          </svg>
+          <div class="chart-value"><span class="before">39.23</span> → <span class="after">51.86%</span><span class="gain">+12.63 points</span></div>
+        </div></div>
+          <p class="note chart-note">ACG improves F1 by 2.30–12.63 percentage points across four models, with higher Recall and no loss in Precision. All plots use a 0–100% scale.</p>
+          <p id="metric-announcement" class="sr-only" aria-live="polite"></p>
+        </div>
+        <p>The largest gains come from recovering missing knowledge. Explicitly pointing to a condition or incomplete relationship may help a model retain information that it omitted while organizing the whole paper.</p>
+        <p class="mobile-scroll-note">Swipe the tables horizontally to see every column.</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Memory compilation results, scrollable">
+          <table id="memory-results"><caption>Scientific knowledge preserved with memory-based compilation</caption><thead><tr><th scope="col">Compiler</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th></tr></thead><tbody><tr class="model-start"><th scope="row" class="">GPT-6-Astra</th><td>100.00%</td><td>90.61%</td><td>95.07%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ A-MEM</th><td>100.00%</td><td>94.12%</td><td>96.92%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ MAGMA</th><td>100.00%</td><td>93.25%</td><td>96.47%</td></tr>
+<tr class="ours"><th scope="row" class="method-indent">+ SciCompile-ACG</th><td>100.00%</td><td><strong>94.96%</strong></td><td><strong>97.37%</strong></td></tr>
+<tr class="model-start"><th scope="row" class="">GPT-5.6-Luna</th><td>98.11%</td><td>78.09%</td><td>86.96%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ A-MEM</th><td>98.48%</td><td>85.35%</td><td>91.39%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ MAGMA</th><td>98.56%</td><td>84.56%</td><td>90.98%</td></tr>
+<tr class="ours"><th scope="row" class="method-indent">+ SciCompile-ACG</th><td><strong>99.67%</strong></td><td><strong>86.35%</strong></td><td><strong>92.53%</strong></td></tr>
+<tr class="model-start"><th scope="row" class="">Qwen3-VL-32B</th><td>78.70%</td><td>48.30%</td><td>59.86%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ A-MEM<sup>†</sup></th><td>87.42%</td><td>58.77%</td><td>69.52%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ MAGMA<sup>†</sup></th><td>86.43%</td><td>58.68%</td><td>68.58%</td></tr>
+<tr class="ours"><th scope="row" class="method-indent">+ SciCompile-ACG</th><td><strong>82.61%</strong></td><td><strong>63.16%</strong></td><td><strong>71.59%</strong></td></tr>
+<tr class="model-start"><th scope="row" class="">Mistral Small 3.2-24B</th><td>84.69%</td><td>25.53%</td><td>39.23%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ A-MEM</th><td>93.46%</td><td>30.04%</td><td>44.55%</td></tr>
+<tr class=""><th scope="row" class="method-indent">+ MAGMA</th><td>88.98%</td><td>34.21%</td><td>48.42%</td></tr>
+<tr class="ours"><th scope="row" class="method-indent">+ SciCompile-ACG</th><td><strong>86.96%</strong></td><td><strong>36.95%</strong></td><td><strong>51.86%</strong></td></tr></tbody></table>
+        </div>
+        <p class="note">Values match Table 4 of the paper. Bold marks ACG gains over its displayed direct baseline. A-MEM and MAGMA are compiler adaptations; their Luna and open-model comparisons use separate paired direct controls. † Qwen’s memory comparisons include bounded retries for an oversized direct draft.</p>
+        <details class="protocol"><summary>Memory compilation protocol and comparison controls</summary><div class="protocol-content">
+          <p>All methods receive the same source packets, figures, task scope, and output schema, with a 6,500-token final-artifact limit. Direct compilation generates a tuple in one stage; ACG uses three stages.</p>
+          <p>A-MEM links source notes and updates retrieval context. MAGMA retrieves through semantic, entity, scientific-dependency, and source-supported temporal relations. Each adaptation uses five logical generation stages, a fixed MiniLM encoder, six source-based review queries, and a 3,000-token retrieved-memory limit. Both supplement a shared direct draft with bounded additions.</p>
+          <p>For Luna, Qwen, and Mistral, the memory adaptations’ paired direct F1 scores are 83.68%, 69.54%, and 43.63%, respectively. Their experiments and ACG’s experiments use separate batches. These results compare complete workflows, including their drafts and call budgets.</p>
+          <p>A separate GPT-6.1-Sol evaluator scores frozen outputs. Metrics are computed per output, averaged within each paper, and then averaged equally across papers. Reported mean F1 is therefore not recomputed from the displayed mean Precision and Recall. See the paper’s compiler evaluation and memory compilation protocols for the annotation and retry rules.</p>
+        </div></details>
+        <details class="more-results"><summary>Five-compiler benchmark: experience and reconstructed report</summary>
+          <p class="note">A fixed GPT-6.1-Sol writer reconstructs a report from the anonymized experience alone. It cannot retrieve the original source. The same source-linked evaluation checks both views.</p>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Compiler and reconstruction results, scrollable"><table id="fidelity-results"><caption>Knowledge preserved in the compiled experience and its reconstruction</caption><thead><tr><th rowspan="2" scope="col">Compiler</th><th colspan="3" scope="colgroup">Compiled experience (%)</th><th colspan="3" scope="colgroup">Reconstructed report (%)</th></tr><tr><th scope="col">P</th><th scope="col">R</th><th scope="col">F1</th><th scope="col">P</th><th scope="col">R</th><th scope="col">F1</th></tr></thead><tbody><tr class=""><th scope="row">GPT-6-Astra</th><td>100.00</td><td>91.05</td><td>95.30</td><td>100.00</td><td>91.05</td><td>95.30</td></tr>
+<tr class=""><th scope="row">GPT-6.1-Sol</th><td>100.00</td><td>89.74</td><td>94.59</td><td>100.00</td><td>89.74</td><td>94.59</td></tr>
+<tr class=""><th scope="row">GPT-6-Luna</th><td>98.51</td><td>90.92</td><td>94.50</td><td>98.67</td><td>90.92</td><td>94.59</td></tr>
+<tr class=""><th scope="row">GPT-5.6-Sol</th><td>99.10</td><td>81.91</td><td>89.49</td><td>99.13</td><td>81.91</td><td>89.50</td></tr>
+<tr class=""><th scope="row">GPT-5.6-Luna</th><td>97.63</td><td>81.97</td><td>89.07</td><td>99.67</td><td>78.09</td><td>87.50</td></tr></tbody></table></div>
+          <p class="note">Table 3. Five compilers, two fresh attempts per source. These are separate runs from the memory comparison above. P = Precision; R = Recall.</p>
+          <p>Most claims are supported, but required information is still lost. Reconstruction leaves mean Recall unchanged for four compilers, suggesting that most measured omissions are already present in the compiled experience.</p>
+        </details>
+      </div>
+
+      <div class="subsection">
+        <h3>Can agents reuse what they practice?</h3>
+        <p>Separate downstream studies evaluate the original compiled-practice pipeline on terminal workflows and scientific plots. These experiments test learned skills; they do not use the ACG compiler variant.</p>
+        <div class="outcomes"><div class="outcome"><p class="value">20<small> / 23</small></p><p>Terminal-workflow checks passed<br>GPT-6.1-Sol · raw paper: 18/23</p></div><div class="outcome"><p class="value">52<small> / 64</small></p><p>Scientific plot questions correct<br>GPT-6-Luna · raw paper: 50/64</p></div></div>
+        <details class="more-results"><summary>Terminal workflow results</summary><p class="note">Four tasks: cilia, Movie1, GRO-seq, and PQR. A task is solved only if every native verifier check passes.</p>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Terminal workflow results, scrollable"><table class="data-table" id="tbs-results"><caption>Terminal workflow checks and solved tasks</caption><thead><tr><th scope="col">Model</th><th scope="col">Method</th><th scope="col">Cilia</th><th scope="col">Movie1</th><th scope="col">GRO-seq</th><th scope="col">PQR</th><th scope="col">Checks</th><th scope="col">Solved</th></tr></thead><tbody><tr class=""><th scope="row">GPT-6.1-Sol</th><td>No documents</td><td>8/9</td><td>0/1</td><td>9/9</td><td>1/4</td><td>18/23</td><td>1/4</td></tr>
+<tr class=""><th scope="row">GPT-6.1-Sol</th><td>Raw paper</td><td>8/9</td><td>0/1</td><td>9/9</td><td>1/4</td><td>18/23</td><td>1/4</td></tr>
+<tr class="ours"><th scope="row">GPT-6.1-Sol</th><td>SciCompile</td><td>8/9</td><td>1/1</td><td>9/9</td><td>2/4</td><td>20/23</td><td>2/4</td></tr>
+<tr class=""><th scope="row">GPT-6-Luna</th><td>Raw paper</td><td>7/9</td><td>0/1</td><td>7/9</td><td>1/4</td><td>15/23</td><td>0/4</td></tr>
+<tr class=""><th scope="row">GPT-6-Luna</th><td>No documents</td><td>7/9</td><td>0/1</td><td>7/9</td><td>0/4</td><td>14/23</td><td>0/4</td></tr>
+<tr class="ours"><th scope="row">GPT-6-Luna</th><td>SciCompile</td><td>8/9</td><td>0/1</td><td>8/9</td><td>1/4</td><td>17/23</td><td>0/4</td></tr></tbody></table></div>
+          <p class="note">Table 5. The paper reports three-run summaries, including the task-level protocol and verifier details.</p>
+        </details>
+        <details class="more-results"><summary>Scientific plot results</summary><p class="note">MaCBench questions cover XRD and adsorption plots: eight task types, eight questions per type. Each evaluation permits eight tool calls and 240 seconds.</p>
+          <div class="table-wrap" tabindex="0" role="region" aria-label="Scientific plot results, scrollable"><table class="data-table" id="plot-results"><caption>Scientific plot questions answered correctly</caption><thead><tr><th scope="col">Model</th><th scope="col">Method</th><th scope="col">XRD</th><th scope="col">Adsorption</th><th scope="col">Total</th></tr></thead><tbody><tr class=""><th scope="row">GPT-6-Luna</th><td>PaperGym</td><td>23/32</td><td>28/32</td><td>51/64</td></tr>
+<tr class=""><th scope="row">GPT-6-Luna</th><td>Raw paper</td><td>23/32</td><td>27/32</td><td>50/64</td></tr>
+<tr class=""><th scope="row">GPT-6-Luna</th><td>No documents</td><td>22/32</td><td>27/32</td><td>49/64</td></tr>
+<tr class=""><th scope="row">GPT-6-Luna</th><td>Paper2Agent</td><td>22/32</td><td>27/32</td><td>49/64</td></tr>
+<tr class="ours"><th scope="row">GPT-6-Luna</th><td>SciCompile</td><td>23/32</td><td>29/32</td><td>52/64</td></tr>
+<tr class=""><th scope="row">GPT-5.6-Sol</th><td>Raw paper</td><td>10/32</td><td>4/32</td><td>14/64</td></tr>
+<tr class=""><th scope="row">GPT-5.6-Sol</th><td>PaperGym</td><td>10/32</td><td>4/32</td><td>14/64</td></tr>
+<tr class=""><th scope="row">GPT-5.6-Sol</th><td>Paper2Agent</td><td>10/32</td><td>1/32</td><td>11/64</td></tr>
+<tr class=""><th scope="row">GPT-5.6-Sol</th><td>No documents</td><td>9/32</td><td>1/32</td><td>10/64</td></tr>
+<tr class="ours"><th scope="row">GPT-5.6-Sol</th><td>SciCompile</td><td>12/32</td><td>4/32</td><td>16/64</td></tr></tbody></table></div>
+          <p class="note">Table 6. Three-run means. Practice uses simulated numerical inputs; evaluation asks the agent to interpret held-out plot images.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-grid" id="examples" aria-labelledby="examples-heading">
+    <div class="section-heading"><span class="section-index" aria-hidden="true">04</span><h2 id="examples-heading">Examples</h2></div>
+    <div class="section-content">
+      <p class="section-intro">New task inputs test whether learned procedures transfer to scientific plots and terminal work.</p>
+      <div class="example-tabs" role="tablist" aria-label="Benchmark examples"><button id="tab-xrd" type="button" role="tab" aria-selected="true" aria-controls="example-xrd" tabindex="0">X-ray diffraction</button><button id="tab-mof" type="button" role="tab" aria-selected="false" aria-controls="example-mof" tabindex="-1">Adsorption</button><button id="tab-cilia" type="button" role="tab" aria-selected="false" aria-controls="example-cilia" tabindex="-1">Cilia workflow</button></div>
+      <div class="example-panel" id="example-xrd" role="tabpanel" aria-labelledby="tab-xrd" tabindex="0"><img src="static/ex_xrd.png" width="1200" height="600" loading="lazy" alt="XRD pattern used in the benchmark peak-position question."><div><p>What is the position (2θ value) of the most intense peak in the XRD pattern?</p><ol type="A"><li>65.1</li><li>75.9</li><li>66.3</li><li>40.5</li></ol><details class="answer"><summary>Show the answer</summary><p>D. 40.5</p></details></div></div>
+      <div class="example-panel" id="example-mof" role="tabpanel" aria-labelledby="tab-mof" tabindex="0" hidden><img src="static/ex_mof.png" width="700" height="500" loading="lazy" alt="Nitrogen adsorption isotherms for four metal-organic frameworks."><div><p>What is the descending order of N₂ adsorption capacities at 1.0 bar, simulated at 298 K?</p><ol type="A"><li>BEPMEQ &gt; FIJCUX01 &gt; ZnMOF-74 &gt; FIPWUY</li><li>FIPWUY &gt; ZnMOF-74 &gt; FIJCUX01 &gt; BEPMEQ</li><li>FIPWUY &gt; FIJCUX01 &gt; ZnMOF-74 &gt; BEPMEQ</li><li>ZnMOF-74 &gt; BEPMEQ &gt; FIJCUX01 &gt; FIPWUY</li></ol><details class="answer"><summary>Show the answer</summary><p>C. FIPWUY &gt; FIJCUX01 &gt; ZnMOF-74 &gt; BEPMEQ</p></details></div></div>
+      <div class="example-panel" id="example-cilia" role="tabpanel" aria-labelledby="tab-cilia" tabindex="0" hidden><img src="static/ex_cilia.png" width="768" height="600" loading="lazy" alt="Well 1 ARL13B channel maximum-intensity microscopy projection."><div><p>The agent receives multi-channel microscopy projections (ARL13B, DAPI, PCNT) and must identify cilia with terminal tools, writing task-specific output files.</p><p>The native verifier runs nine checks. The task is solved only when all nine pass.</p><p class="note">Shown: well 1, ARL13B channel, maximum-intensity projection.</p></div></div>
+    </div>
+  </section>
+
+  <section class="section section-grid" id="bibtex" aria-labelledby="citation-heading">
+    <div class="section-heading"><span class="section-index" aria-hidden="true">05</span><h2 id="citation-heading">Citation</h2></div>
+    <div class="section-content"><div class="citation-top"><p>BibTeX for the current research draft.</p><button class="copy-button" type="button" id="copy-citation">Copy BibTeX</button></div><pre id="citation">@misc{wu2026scicompile,
+  title = {SciCompile: Compiling Scientific Papers into
+           Verifiable Experiences for Agent Learning},
+  author = {Wu, Shang and Liu, Han},
+  year = {2026},
+  note = {Research draft},
+  url = {https://windsao.github.io/SciCompile/}
+}</pre><span id="copy-status" class="sr-only" role="status"></span></div>
+  </section>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner"><p>SciCompile · Shang Wu and Han Liu · Northwestern University<br>Updated from the 17 November 2026 paper. <a href="static/main.pdf">Paper PDF</a> · <a href="https://github.com/Windsao/SciCompile">Website source</a></p><p>Design refined with <a href="https://github.com/heydamir/unslop">unslop</a><br>by Damir Sokolovsky.</p></div></footer>
+<script type="application/json" id="compiler-data">[{"model": "GPT-6-Astra", "rows": [{"method": "Direct", "precision": 100.0, "recall": 90.61, "f1": 95.07}, {"method": "+ A-MEM", "precision": 100.0, "recall": 94.12, "f1": 96.92}, {"method": "+ MAGMA", "precision": 100.0, "recall": 93.25, "f1": 96.47}, {"method": "+ SciCompile-ACG", "precision": 100.0, "recall": 94.96, "f1": 97.37}]}, {"model": "GPT-5.6-Luna", "rows": [{"method": "Direct", "precision": 98.11, "recall": 78.09, "f1": 86.96}, {"method": "+ A-MEM", "precision": 98.48, "recall": 85.35, "f1": 91.39}, {"method": "+ MAGMA", "precision": 98.56, "recall": 84.56, "f1": 90.98}, {"method": "+ SciCompile-ACG", "precision": 99.67, "recall": 86.35, "f1": 92.53}]}, {"model": "Qwen3-VL-32B", "rows": [{"method": "Direct", "precision": 78.7, "recall": 48.3, "f1": 59.86}, {"method": "+ A-MEM\u2020", "precision": 87.42, "recall": 58.77, "f1": 69.52}, {"method": "+ MAGMA\u2020", "precision": 86.43, "recall": 58.68, "f1": 68.58}, {"method": "+ SciCompile-ACG", "precision": 82.61, "recall": 63.16, "f1": 71.59}]}, {"model": "Mistral Small 3.2-24B", "rows": [{"method": "Direct", "precision": 84.69, "recall": 25.53, "f1": 39.23}, {"method": "+ A-MEM", "precision": 93.46, "recall": 30.04, "f1": 44.55}, {"method": "+ MAGMA", "precision": 88.98, "recall": 34.21, "f1": 48.42}, {"method": "+ SciCompile-ACG", "precision": 86.96, "recall": 36.95, "f1": 51.86}]}]</script>
+</body>
+</html>
