@@ -1,14 +1,15 @@
 {
   "paper_title": "SciCompile: Compiling Scientific Papers into Verifiable Experiences for Agent Learning",
-  "paper_commit": "12d22083fa1f31c8d27b1d7c716d9640b01f80ca",
-  "updated": "2026-11-17",
-  "pdf_sha256": "d5d4bfc3269dd9ac43e6e79dfee07955a20d69ebe04613ba6e7d5720f8572bc3",
-  "results_source": "Main-text Tables 3, 4, 5, and 6; author experimental results",
+  "paper_commit": "1f2b9c0ab8caca0f145b81ef4d9d8e32fc813974",
+  "updated": "2026-11-20",
+  "pdf_sha256": "e233f036c4f14a297c819b66e7f1175b5d96130bf1747e8fdb4d205f6d33e729",
+  "results_source": "Main-text Tables 3, 4, 5, 6, and 7; author experimental results",
   "result_table_blobs": {
     "compiler_fidelity.tex": "79857f7772c7990797c5ceb5388d59dd439134df",
     "compiler_acg_models.tex": "57ca91238f6af7159358683bf63b1eaa0f912597",
     "tbs_reward.tex": "a551a19eaa22d0fa917f139a15c1814d0079761a",
-    "materials.tex": "a3ee7f3104d483cdd0df495e511af31db2ed6e3d"
+    "materials.tex": "a3ee7f3104d483cdd0df495e511af31db2ed6e3d",
+    "pae_tasks.tex": "5aeac723fdc295fb378787092e995025854c1e45"
   },
   "compiler_results": [
     {
@@ -79,13 +80,13 @@
           "f1": 59.86
         },
         {
-          "method": "+ A-MEM\u2020",
+          "method": "+ A-MEM†",
           "precision": 87.42,
           "recall": 58.77,
           "f1": 70.29
         },
         {
-          "method": "+ MAGMA\u2020",
+          "method": "+ MAGMA†",
           "precision": 86.43,
           "recall": 58.68,
           "f1": 69.9
@@ -129,5 +130,55 @@
     }
   ],
   "f1_aggregation": "H(displayed aggregate Precision, displayed aggregate Recall), rounded to two decimal places",
-  "direct_baselines": "Table 3 fidelity outputs and Table 4 memory-comparison references are separate; Table 4 is not a common paired-control study."
+  "direct_baselines": "Table 3 fidelity outputs and Table 4 memory-comparison references are separate; Table 4 is not a common paired-control study.",
+  "scientific_task_results": [
+    {
+      "model": "GPT-5.6-Sol",
+      "method": "Raw papers",
+      "dna": "0/4",
+      "coating": "3/8",
+      "sem_pq": 0.0
+    },
+    {
+      "model": "GPT-5.6-Sol",
+      "method": "+ SciCompile",
+      "dna": "0/4",
+      "coating": "3/8",
+      "sem_pq": 0.0
+    },
+    {
+      "model": "GPT-5.6-Sol",
+      "method": "+ SciCompile-ACG",
+      "dna": "0/4",
+      "coating": "3/8",
+      "sem_pq": 0.0
+    },
+    {
+      "model": "GPT-6.1-Sol",
+      "method": "Raw papers",
+      "dna": "4/4",
+      "coating": "3/8",
+      "sem_pq": 0.1463
+    },
+    {
+      "model": "GPT-6.1-Sol",
+      "method": "+ SciCompile",
+      "dna": "4/4",
+      "coating": "7/8",
+      "sem_pq": 0.1808
+    },
+    {
+      "model": "GPT-6.1-Sol",
+      "method": "+ SciCompile-ACG",
+      "dna": "4/4",
+      "coating": "8/8",
+      "sem_pq": 0.2115
+    }
+  ],
+  "scientific_task_protocol": {
+    "dna_coating": "Original single-run outcomes; invalid submissions score zero.",
+    "sem_gpt_5_6_sol": "Original single-run protocol zeros: all three arms lacked committed programs.",
+    "sem_gpt_6_1_sol": "Best whole run among three per arm in the revised checkpointing cohort; ACG adds task-bound source execution checks.",
+    "appendix": "Appendix J reports repeated-run means, variation, and separate original SEM outcomes."
+  }
 }
