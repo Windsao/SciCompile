@@ -1,15 +1,14 @@
 {
   "paper_title": "SciCompile: Compiling Scientific Papers into Verifiable Experiences for Agent Learning",
-  "paper_commit": "20310cb0fcbdf0f4715bb3a9cc634d23b4f20691",
+  "paper_commit": "76e8f6d4379ed9ff6f06b20177448bf2dac0781f",
   "updated": "2026-11-20",
-  "pdf_sha256": "2868839f27f89dde4e6b116889f1ad7828a101eeb23ccaa09621f42b4451c196",
-  "results_source": "Main-text Tables 3, 4, 5, 6, and 7; author experimental results",
+  "pdf_sha256": "8d1e7276a6ebe149927853fd8ef0204cfb7ec7b5d3bf73abe714e7900f8d854c",
+  "results_source": "Main-text Tables 3, 4, 5, and 6; author experimental results",
   "result_table_blobs": {
-    "compiler_fidelity.tex": "79857f7772c7990797c5ceb5388d59dd439134df",
     "compiler_acg_models.tex": "57ca91238f6af7159358683bf63b1eaa0f912597",
     "tbs_reward.tex": "a551a19eaa22d0fa917f139a15c1814d0079761a",
     "materials.tex": "a3ee7f3104d483cdd0df495e511af31db2ed6e3d",
-    "pae_tasks.tex": "5aeac723fdc295fb378787092e995025854c1e45"
+    "pae_tasks.tex": "1fdbfde8349db1ff65ace42a065cd2b4de0057dd"
   },
   "compiler_results": [
     {
@@ -130,28 +129,28 @@
     }
   ],
   "f1_aggregation": "H(displayed aggregate Precision, displayed aggregate Recall), rounded to two decimal places",
-  "direct_baselines": "Table 3 fidelity outputs and Table 4 memory-comparison references are separate; Table 4 is not a common paired-control study.",
+  "direct_baselines": "Table 3 compares complete compiler workflows; direct rows are descriptive references for the workflow batches.",
   "scientific_task_results": [
     {
       "model": "GPT-5.6-Sol",
       "method": "Raw papers",
       "dna": "0/4",
       "coating": "3/8",
-      "sem_pq": 0.0
+      "sem_pq": 0.1357
     },
     {
       "model": "GPT-5.6-Sol",
       "method": "+ SciCompile",
       "dna": "0/4",
       "coating": "3/8",
-      "sem_pq": 0.0
+      "sem_pq": 0.18
     },
     {
       "model": "GPT-5.6-Sol",
       "method": "+ SciCompile-ACG",
-      "dna": "0/4",
+      "dna": "4/4",
       "coating": "3/8",
-      "sem_pq": 0.0
+      "sem_pq": 0.1905
     },
     {
       "model": "GPT-6.1-Sol",
@@ -176,9 +175,16 @@
     }
   ],
   "scientific_task_protocol": {
-    "dna_coating": "Original single-run outcomes; invalid submissions score zero.",
-    "sem_gpt_5_6_sol": "Original single-run protocol zeros: all three arms lacked committed programs.",
-    "sem_gpt_6_1_sol": "Best whole run among three per arm in the revised checkpointing cohort; ACG adds task-bound source execution checks.",
-    "appendix": "Appendix J reports repeated-run means, variation, and separate original SEM outcomes."
+    "dna_coating": "Passed DNA designs out of four and coating datasets out of eight.",
+    "sem": "Mean class-aware Panoptic Quality over two final SEM images.",
+    "execution": "Shared tools and authoring budgets within each agent; saved outputs must match fresh replay.",
+    "appendix": "Appendix J specifies compilation, task inputs, checkpointing, and scoring."
+  },
+  "scientific_task_results_source_commit": "15be2e3dbe771197f5dc9e1942bbbc4be2d88820",
+  "result_table_numbers": {
+    "compiler_acg_models.tex": 3,
+    "tbs_reward.tex": 4,
+    "materials.tex": 5,
+    "pae_tasks.tex": 6
   }
 }
