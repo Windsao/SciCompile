@@ -236,25 +236,24 @@
   <section class="section section-grid" id="task-results" aria-labelledby="task-results-heading">
     <div class="section-heading"><span class="section-index" aria-hidden="true">04</span><h2 id="task-results-heading">Scientific tasks</h2></div>
     <div class="section-content">
-      <p class="section-intro">Compiled sources also support direct task solving. GPT-6.1-Sol passes 3/8 coating datasets with papers, 7/8 with ordinary compilation, and 8/8 with SciCompile-ACG. Its best-of-three SEM PQ rises from 0.1463 to 0.1808 and 0.2115. For GPT-5.6-Sol, ordinary compilation improves the best SEM score to 0.2194, but neither compiled workflow improves the mean.</p>
+      <p class="section-intro">Compiled sources also support direct task solving. GPT-6.1-Sol passes 3/8 coating datasets with papers, 7/8 with ordinary compilation, and 8/8 with SciCompile-ACG. In the repeated SEM comparison, best-of-three PQ rises from 0.1463 to 0.1808 and 0.2115.</p>
       <div class="table-wrap" tabindex="0" role="region" aria-label="Scientific task results, scrollable"><table class="data-table" id="pae-results">
         <caption>Scientific task performance with compiled sources</caption>
         <thead><tr><th scope="col">Agent</th><th scope="col">Sources</th><th scope="col">DNA</th><th scope="col">Coating</th><th scope="col">SEM PQ</th></tr></thead>
         <tbody>
-          <tr class="model-start"><th scope="row">GPT-5.6-Sol</th><td>Raw papers</td><td>0/4</td><td>3/8</td><td>0.1958</td></tr>
-          <tr><th scope="row">GPT-5.6-Sol</th><td>+ SciCompile</td><td>0/4</td><td>3/8</td><td><strong>0.2194</strong></td></tr>
-          <tr class="ours"><th scope="row">GPT-5.6-Sol</th><td>+ SciCompile-ACG</td><td>0/4</td><td>3/8</td><td>0.1925</td></tr>
+          <tr class="model-start"><th scope="row">GPT-5.6-Sol</th><td>Raw papers</td><td>0/4</td><td>3/8</td><td>0.0000</td></tr>
+          <tr><th scope="row">GPT-5.6-Sol</th><td>+ SciCompile</td><td>0/4</td><td>3/8</td><td>0.0000</td></tr>
+          <tr class="ours"><th scope="row">GPT-5.6-Sol</th><td>+ SciCompile-ACG</td><td>0/4</td><td>3/8</td><td>0.0000</td></tr>
           <tr class="model-start"><th scope="row">GPT-6.1-Sol</th><td>Raw papers</td><td>4/4</td><td>3/8</td><td>0.1463</td></tr>
           <tr><th scope="row">GPT-6.1-Sol</th><td>+ SciCompile</td><td>4/4</td><td><strong>7/8</strong></td><td><strong>0.1808</strong></td></tr>
           <tr class="ours"><th scope="row">GPT-6.1-Sol</th><td>+ SciCompile-ACG</td><td>4/4</td><td><strong>8/8</strong></td><td><strong>0.2115</strong></td></tr>
         </tbody>
       </table></div>
-      <p class="note">Table 7. Every condition includes the original papers. DNA and coating show single-run passed cases. SEM entries select the best whole run from three fixed attempts per condition within each agent’s cohort, using mean class-aware PQ over two final images. Conditions share checkpointing and finalization; ACG adds task-bound execution checks. Bold marks gains over raw papers within each agent’s cohort.</p>
+      <p class="note">Table 7. Every condition includes the original papers. DNA and coating show single-run passed cases. GPT-5.6-Sol’s SEM entries are original protocol zeros for missing committed programs. GPT-6.1-Sol’s SEM entries select the best whole run from three attempts per condition under a shared checkpointing protocol, with task-bound ACG execution checks. Bold marks gains over raw papers within each comparison.</p>
       <details class="protocol"><summary>SEM execution and repeated-run results</summary><div class="protocol-content">
         <p>SEM requires instance masks and crystal classes. PQ averages the class-aware score across two final images. Four annotated training images and up to three aggregate practice checks on one practice image support development.</p>
-        <p>Each cohort uses the same 20-minute authoring budget in all three conditions. A controller retains the best practice-scoring source version, executes it on final inputs, and requires an independent replay to reproduce the predictions. ACG additionally connects source records to execution checks for scope, foreground, boundaries, features, validation, and output identity. The GPT-5.6-Sol cohort also receives a common headless OpenCV fix, an early executable-program reminder, and corrected network-filesystem polling; comparisons are within each agent’s cohort.</p>
-        <p>For GPT-5.6-Sol, mean PQ and sample standard deviation across three runs are 0.1905 ± 0.0064 for raw papers, 0.1800 ± 0.0351 for ordinary compilation, and 0.1357 ± 0.0949 for ACG. Ordinary compilation improves the best score, while ACG improves neither the mean nor the best score.</p>
-        <p>The corresponding GPT-6.1-Sol summaries are 0.1080 ± 0.0524, 0.1237 ± 0.0643, and 0.1416 ± 0.0678. All 18 repeated submissions are valid. This development comparison follows analysis of the same task. Under the separate original protocol, GPT-6.1-Sol scored 0.3488 with raw papers, a protocol zero with ordinary compilation, and 0.0814 with ACG; all three GPT-5.6-Sol submissions received protocol zero for missing committed programs. Appendix J of the <a href="static/main.pdf">paper</a> describes the protocols and complete summaries.</p>
+        <p>The repeated comparison uses the same 20-minute authoring budget in all three conditions. A controller retains the best practice-scoring source version, executes it on final inputs, and requires an independent replay to reproduce the predictions. ACG additionally connects source records to execution checks for scope, foreground, boundaries, features, validation, and output identity.</p>
+        <p>Across three runs, mean PQ and sample standard deviation are 0.108 ± 0.052 for raw papers, 0.124 ± 0.064 for ordinary compilation, and 0.142 ± 0.068 for ACG with execution checks. All nine submissions are valid. This development comparison follows analysis of the same task. The original single-run protocol yielded 0.3488 for raw papers, a protocol zero for ordinary compilation, and 0.0814 for ACG. Appendix J of the <a href="static/main.pdf">paper</a> describes both protocols.</p>
       </div></details>
     </div>
   </section>
